@@ -41,7 +41,7 @@ source : https://martinfowler.com/articles/microservice-testing/[_M. Fowler "mic
 
 == Concepts
 
-* Docker en prérequis
+* Prérequis : `docker`
 * TUs, TC dans un contexte `docker`
 * Conteneur(s) jettable(s)
 ** Scopés au test/testsuite
@@ -150,6 +150,8 @@ uri := fmt.Sprintf("mongodb://%s:%s", hostIP, mPort)
 [source, go]
 ----
 func TestMain(m *testing.M) {    
+    uri := ...
+    
     ctx := context.Background()
     client, err := mdriver.Connect(
         ctx, 
@@ -188,9 +190,13 @@ func Test_Add(t *testing.T) {
 }
 ----
 
-== Repository
+== 🫱📱⚡️
 
-image::qr-code-testcontainers-go.png[width=50%]
+Article Medium + code Repository
+
+image::qr-code-medium.png[width=40%]
+
+icon:github[]/ncomet/testcontainers-go
 
 == CI/CD
 
@@ -203,9 +209,13 @@ NOTE: Donner l'accès à votre runner au démon Docker
 
 image::testcontainers-languages.jpg[]
 
-== Slides
+== 🫱📱⚡️
 
-image::qr-code-slides.png[width=50%]
+Slides
+
+image::qr-code-slides.png[width=40%]
+
+https://ncomet.github.io/testcontainers-go-slides
 
 [%notitle]
 == Questions ?
