@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@asciidoctor/reveal.js": "^5.0.0-rc.1",
+    "npm-watch": "^0.11.0"
+  },
+  "watch": {
+    "build": "slides.adoc"
+  },
+  "scripts": {
+    "build": "npx asciidoctor-revealjs slides.adoc",
+    "watch": "npm-watch"
+  }
+}

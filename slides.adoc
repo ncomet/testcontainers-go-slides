@@ -1,0 +1,75 @@
+= Test Me Up, before you Go-Go!
+:imagesdir: images
+:source-highlighter: highlightjs
+:revealjs_theme: white
+:revealjs_history: true
+:revealjs_slideNumber: true
+:revealjs_showSlideNumber: speaker
+:revealjs_defaultTiming: 37
+:customcss: custom.css
+:icons: font
+:title-slide-transition: zoom
+:title-slide-transition-speed: fast
+// nsl, cloudnord, bdxio
+:conf: nsl 
+
+image:{conf}.jpg[]
+
+== Qui je suis ?
+
+icon:twitter[] @NicolasComet +
+icon:github[] https://github.com/ncomet +
+
+image:ubisoft.jpg[]
+
+== Testcontainers
+
+* Librairie `Java` (2015)
+** JUnit 4 : `@Rule`/`@ClassRule`
+** JUnit 5 : `@Testcontainer` extension
+
+== Concepts
+
+* Docker en prérequis
+* TUs, TC dans un contexte `docker`
+* Conteneur(s) jettable(s)
+** Scopés au test/testsuite
+
+== Pourquoi ?
+
+Tester avec le *concret*
+
+image::hexagonal.png[width=50%]
+
+source: https://bit.ly/3elq5cT
+
+[%notitle]
+== Dans quel cadre ?
+
+image::microtests.jpg[width=90%]
+
+source : _M. Fowler "microservices testing"_ 
+
+== BDD relationnelle
+
+https://phauer.com/2017/dont-use-in-memory-databases-tests-h2/
+
+* Migration schémas ?
+* Données existantes ?
+* Spécificités, _joyeusetés_ (Date/Time) ?
+* Différents standards ?
+
+== Go
+
+== Langages
+
+image::testcontainers-languages.jpg[]
+
+[%notitle]
+== Questions ?
+
+image::ravingquestion.jpg[background, size=cover]
+
+
+
+
