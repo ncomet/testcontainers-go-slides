@@ -422,7 +422,7 @@ ul.byline li + li {
 <section id="_testcontainers"><h2>Testcontainers</h2><div class="slide-content"><div class="ulist"><ul><li><p>Librairie <code>Java</code> (2015)</p><div class="ulist"><ul><li><p>JUnit 4 : <code>@Rule</code>/<code>@ClassRule</code></p></li><li><p>JUnit 5 : <code>@Testcontainer</code> extension</p></li></ul></div></li></ul></div></div></section>
 <section id="_dans_quel_cadre"><div class="slide-content"><div class="imageblock"><img src="images/microtests.jpg" alt="microtests"></div>
 <div class="paragraph"><p>source : <a href="https://martinfowler.com/articles/microservice-testing/"><em>M. Fowler "microservices testing"</em></a></p></div></div></section>
-<section id="_concepts"><h2>Concepts</h2><div class="slide-content"><div class="ulist"><ul><li><p>Docker en prérequis</p></li><li><p>TUs, TC dans un contexte <code>docker</code></p></li><li><p>Conteneur(s) jettable(s)</p><div class="ulist"><ul><li><p>Scopés au test/testsuite</p></li></ul></div></li></ul></div></div></section>
+<section id="_concepts"><h2>Concepts</h2><div class="slide-content"><div class="ulist"><ul><li><p>Prérequis : <code>docker</code></p></li><li><p>TUs, TC dans un contexte <code>docker</code></p></li><li><p>Conteneur(s) jettable(s)</p><div class="ulist"><ul><li><p>Scopés au test/testsuite</p></li></ul></div></li></ul></div></div></section>
 <section id="_testcontainers_vs_mémoire"><h2>Testcontainers vs. mémoire ?</h2><div class="slide-content"><div class="paragraph"><p>Tester avec les implémentations <strong>concrètes</strong></p></div>
 <div class="imageblock"><img src="images/hexagonal.png" alt="hexagonal" width="50%"></div>
 <div class="paragraph"><p>source: <a href="https://bit.ly/3elq5cT" class="bare">https://bit.ly/3elq5cT</a></p></div></div></section>
@@ -487,6 +487,8 @@ mPort, err := container.MappedPort(
 
 uri := fmt.Sprintf("mongodb://%s:%s", hostIP, mPort)</code></pre></div></div></div></section>
 <section id="_go_testmain"><h2>Go - TestMain</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-go hljs" data-noescape="true" data-lang="go">func TestMain(m *testing.M) {
+    uri := ...
+
     ctx := context.Background()
     client, err := mdriver.Connect(
         ctx,
@@ -517,11 +519,15 @@ uri := fmt.Sprintf("mongodb://%s:%s", hostIP, mPort)</code></pre></div></div></d
 	assert.Equal(t, "Assassin's Creed Valhalla", game.Title)
 	assert.Equal(t, domain.Eighteen, game.PEGI)
 }</code></pre></div></div></div></section>
-<section id="_repository"><h2>Repository</h2><div class="slide-content"><div class="imageblock"><img src="images/qr-code-testcontainers-go.png" alt="qr code testcontainers go" width="50%"></div></div></section>
+<section id=""><h2>🫱📱⚡️</h2><div class="slide-content"><div class="paragraph"><p>Article Medium + code Repository</p></div>
+<div class="imageblock"><img src="images/qr-code-medium.png" alt="qr code medium" width="40%"></div>
+<div class="paragraph"><p><span class="icon"><i class="fa fa-github"></i></span>/ncomet/testcontainers-go</p></div></div></section>
 <section id="_cicd"><h2>CI/CD</h2><div class="slide-content"><div class="ulist"><ul><li><p>Docker runner + Docker socket binding</p></li><li><p>Docker in Docker (dind), Service sous gitlab</p></li></ul></div>
 <div class="admonitionblock note"><table><tr><td class="icon"><i class="fa fa-info-circle" title="Note"></i></td><td class="content">Donner l&#8217;accès à votre runner au démon Docker</td></tr></table></div></div></section>
 <section id="_langages"><h2>Langages</h2><div class="slide-content"><div class="imageblock"><img src="images/testcontainers-languages.jpg" alt="testcontainers languages"></div></div></section>
-<section id="_slides"><h2>Slides</h2><div class="slide-content"><div class="imageblock"><img src="images/qr-code-slides.png" alt="qr code slides" width="50%"></div></div></section>
+<section id="_2"><h2>🫱📱⚡️</h2><div class="slide-content"><div class="paragraph"><p>Slides</p></div>
+<div class="imageblock"><img src="images/qr-code-slides.png" alt="qr code slides" width="40%"></div>
+<div class="paragraph"><p><a href="https://ncomet.github.io/testcontainers-go-slides" class="bare">https://ncomet.github.io/testcontainers-go-slides</a></p></div></div></section>
 <section id="_questions" data-background-image="images/ravingquestion.jpg" data-background-size="cover"></section></div></div><script src="node_modules/reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
   if (slide.getAttribute('data-background-color')) return;
   // user needs to explicitly say he wants CSS color to override otherwise we might break custom css or theme (#226)
