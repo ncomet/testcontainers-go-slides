@@ -419,15 +419,15 @@ ul.byline li + li {
 <div class="paragraph"><p>☁️🎮  <strong>Streaming Team</strong>  ☁️🎮</p></div>
 <div class="paragraph"><p><strong>@</strong></p></div>
 <div class="imageblock"><img src="images/ubisoft.jpg" alt="ubisoft"></div></div></section>
-<section id="_testcontainers"><h2>Testcontainers</h2><div class="slide-content"><div class="ulist"><ul><li><p>Librairie <code>Java</code> (2015)</p><div class="ulist"><ul><li><p>JUnit 4 : <code>@Rule</code>/<code>@ClassRule</code></p></li><li><p>JUnit 5 : <code>@Testcontainer</code> extension</p></li></ul></div></li></ul></div></div></section>
-<section id="_dans_quel_cadre"><div class="slide-content"><div class="imageblock"><img src="images/microtests.jpg" alt="microtests"></div>
+<section id="_problématique"><div class="slide-content"><div class="imageblock"><img src="images/microtests.jpg" alt="microtests"></div>
 <div class="paragraph"><p>source : <a href="https://martinfowler.com/articles/microservice-testing/"><em>M. Fowler "microservices testing"</em></a></p></div></div></section>
-<section id="_concepts"><h2>Concepts</h2><div class="slide-content"><div class="ulist"><ul><li><p>Prérequis : <code>docker</code></p></li><li><p>TUs, TC dans un contexte <code>docker</code></p></li><li><p>Conteneur(s) jettable(s)</p><div class="ulist"><ul><li><p>Scopés au test/testsuite</p></li></ul></div></li></ul></div></div></section>
-<section id="_testcontainers_vs_mémoire"><h2>Testcontainers vs. mémoire ?</h2><div class="slide-content"><div class="paragraph"><p>Tester avec les implémentations <strong>concrètes</strong></p></div>
+<section id="_réel_vs_mémoire"><h2>Réel vs. mémoire ?</h2><div class="slide-content"><div class="paragraph"><p>Tester avec les implémentations <strong>concrètes</strong></p></div>
 <div class="imageblock"><img src="images/hexagonal.png" alt="hexagonal" width="50%"></div>
 <div class="paragraph"><p>source: <a href="https://bit.ly/3elq5cT" class="bare">https://bit.ly/3elq5cT</a></p></div></div></section>
 <section id="_ex_bdd_relationnelle"><h2>Ex : BDD relationnelle</h2><div class="slide-content"><div class="paragraph"><p><a href="https://phauer.com/2017/dont-use-in-memory-databases-tests-h2/" class="bare">https://phauer.com/2017/dont-use-in-memory-databases-tests-h2/</a></p></div>
 <div class="ulist"><ul><li><p>Migration schémas ?</p></li><li><p>Données existantes ?</p></li><li><p>Spécificités, <em>joyeusetés</em> (Date/Time) ?</p></li><li><p>Différents standards ?</p></li></ul></div></div></section>
+<section id="_testcontainers"><h2>Testcontainers</h2><div class="slide-content"><div class="ulist"><ul><li><p>Librairie <code>Java</code> (2015)</p><div class="ulist"><ul><li><p>JUnit 4 : <code>@Rule</code>/<code>@ClassRule</code></p></li><li><p>JUnit 5 : <code>@Testcontainer</code> extension</p></li></ul></div></li><li><p>Librairie <code>Go</code> (Jan 2019)</p><div class="ulist"><ul><li><p><code>go test</code> framework</p></li></ul></div></li></ul></div></div></section>
+<section id="_concepts"><h2>Concepts</h2><div class="slide-content"><div class="ulist"><ul><li><p>Prérequis : <code>docker</code></p></li><li><p>TUs, TC dans un contexte <code>docker</code></p></li><li><p>Conteneur(s) jettable(s)</p><div class="ulist"><ul><li><p>Scopés au test/testsuite</p></li></ul></div></li></ul></div></div></section>
 <section id="_go_domaine"><h2>Go - domaine</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-go hljs" data-noescape="true" data-lang="go">package domain
 
 type PEGI int
