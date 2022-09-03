@@ -26,27 +26,14 @@ icon:github[] https://github.com/ncomet +
 
 image::ubisoft.jpg[] 
 
-== Testcontainers
-
-* Librairie `Java` (2015)
-** JUnit 4 : `@Rule`/`@ClassRule`
-** JUnit 5 : `@Testcontainer` extension
-
 [%notitle]
-== Dans quel cadre ?
+== Problématique
 
 image::microtests.jpg[]
 
 source : https://martinfowler.com/articles/microservice-testing/[_M. Fowler "microservices testing"_] 
 
-== Concepts
-
-* Prérequis : `docker`
-* TUs, TC dans un contexte `docker`
-* Conteneur(s) jettable(s)
-** Scopés au test/testsuite
-
-== Testcontainers vs. mémoire ?
+== Réel vs. mémoire ?
 
 Tester avec les implémentations *concrètes*
 
@@ -62,6 +49,21 @@ https://phauer.com/2017/dont-use-in-memory-databases-tests-h2/
 * Données existantes ?
 * Spécificités, _joyeusetés_ (Date/Time) ?
 * Différents standards ?
+
+== Testcontainers
+
+* Librairie `Java` (2015)
+** JUnit 4 : `@Rule`/`@ClassRule`
+** JUnit 5 : `@Testcontainer` extension
+* Librairie `Go` (Jan 2019)
+** `go test` framework
+
+== Concepts
+
+* Prérequis : `docker`
+* TUs, TC dans un contexte `docker`
+* Conteneur(s) jettable(s)
+** Scopés au test/testsuite
 
 == Go - domaine
 
@@ -151,7 +153,7 @@ uri := fmt.Sprintf("mongodb://%s:%s", hostIP, mPort)
 ----
 func TestMain(m *testing.M) {    
     uri := ...
-    
+
     ctx := context.Background()
     client, err := mdriver.Connect(
         ctx, 
