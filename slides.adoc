@@ -20,13 +20,24 @@ image:{conf}.jpg[]
 icon:twitter[] @NicolasComet +
 icon:github[] https://github.com/ncomet +
 
-image:ubisoft.jpg[]
+☁️🎮  *Streaming Team*  ☁️🎮
+
+*@*
+
+image::ubisoft.jpg[] 
 
 == Testcontainers
 
 * Librairie `Java` (2015)
 ** JUnit 4 : `@Rule`/`@ClassRule`
 ** JUnit 5 : `@Testcontainer` extension
+
+[%notitle]
+== Dans quel cadre ?
+
+image::microtests.jpg[]
+
+source : https://martinfowler.com/articles/microservice-testing/[_M. Fowler "microservices testing"_] 
 
 == Concepts
 
@@ -35,22 +46,15 @@ image:ubisoft.jpg[]
 * Conteneur(s) jettable(s)
 ** Scopés au test/testsuite
 
-== Pourquoi ?
+== Testcontainers vs. mémoire ?
 
-Tester avec le *concret*
+Tester avec les implémentations *concrètes*
 
 image::hexagonal.png[width=50%]
 
 source: https://bit.ly/3elq5cT
 
-[%notitle]
-== Dans quel cadre ?
-
-image::microtests.jpg[width=90%]
-
-source : _M. Fowler "microservices testing"_ 
-
-== BDD relationnelle
+== Ex : BDD relationnelle
 
 https://phauer.com/2017/dont-use-in-memory-databases-tests-h2/
 
@@ -59,13 +63,149 @@ https://phauer.com/2017/dont-use-in-memory-databases-tests-h2/
 * Spécificités, _joyeusetés_ (Date/Time) ?
 * Différents standards ?
 
-== Go
+== Go - domaine
 
-TODO
+[source, go]
+----
+package domain
+
+type PEGI int
+type GameId string
+
+type Game struct {
+	Id    GameId
+	Title string
+	PEGI  PEGI
+}
+
+type AllGames interface {
+	All() []*Game
+	Add(*Game)
+	Remove(*Game)
+	By(GameId) *Game
+}
+----
+
+== Go - Entrepot Mongo
+
+[source, go]
+----
+package mongo
+
+type AllGames struct {
+	client *mongo.Client
+	coll   *mongo.Collection
+}
+
+func (a AllGames) Add(game *domain.Game) {
+	ctx, cancel := context.WithTimeout(
+		context.Background(),
+		5*time.Second,
+	)
+	defer cancel()
+	_, err := a.coll.ReplaceOne(ctx, bson.D{{"_id", game.Id}},
+		bson.D{
+			{"title", game.Title},
+			{"PEGI", game.PEGI},
+		}, options.Replace().SetUpsert(true))
+...
+}
+...
+----
+
+== Go - TestContainers 1/2
+
+[source, go]
+----
+req := testcontainers.ContainerRequest{
+    Image:        "mongo:5.0.8",
+    ExposedPorts: []string{"27017/tcp"},
+    WaitingFor:   wait.ForListeningPort(nat.Port("27017")),
+}
+
+container, err := testcontainers.GenericContainer(
+    ctx, 
+    testcontainers.GenericContainerRequest{
+        ContainerRequest: req,
+        Started:          true,
+})
+...
+----
+
+== Go - TestContainers 2/2
+
+[source, go]
+----
+hostIP, err := container.Host(ctx)
+mPort, err := container.MappedPort(
+    ctx, 
+    nat.Port("27017"),
+)
+
+uri := fmt.Sprintf("mongodb://%s:%s", hostIP, mPort)
+----
+
+== Go - TestMain
+
+[source, go]
+----
+func TestMain(m *testing.M) {    
+    ctx := context.Background()
+    client, err := mdriver.Connect(
+        ctx, 
+        options.Client().ApplyURI(uri),
+    )
+	
+    allGames = mongo.NewAllGames(client)
+		
+    defer func() {
+        if err = client.Disconnect(ctx); err != nil {
+            panic(err)
+        }
+    }()
+    
+   os.Exit(m.Run())
+}
+----
+
+== Test all the things !
+
+[source, go]
+----
+func Test_Add(t *testing.T) {
+	gameId := domain.GameId(uuid.NewString())
+
+	allGames.Add(&domain.Game{
+		Id:    gameId,
+		Title: "Assassin's Creed Valhalla",
+		PEGI:  domain.Eighteen,
+	})
+
+	game := allGames.By(gameId)
+	assert.Equal(t, gameId, game.Id)
+	assert.Equal(t, "Assassin's Creed Valhalla", game.Title)
+	assert.Equal(t, domain.Eighteen, game.PEGI)
+}
+----
+
+== Repository
+
+image::qr-code-testcontainers-go.png[width=50%]
+
+== CI/CD
+
+* Docker runner + Docker socket binding
+* Docker in Docker (dind), Service sous gitlab
+
+NOTE: Donner l'accès à votre runner au démon Docker
 
 == Langages
 
 image::testcontainers-languages.jpg[]
+
+== Slides
+
+image::qr-code-slides.png[width=50%]
 
 [%notitle]
 == Questions ?
