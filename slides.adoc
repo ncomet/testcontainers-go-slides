@@ -13,8 +13,6 @@
 // nsl, cloudnord, bdxio
 :conf: nsl 
 
-@
-
 image:{conf}.jpg[]
 
 == Qui je suis ?
