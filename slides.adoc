@@ -13,6 +13,8 @@
 // nsl, cloudnord, bdxio
 :conf: nsl 
 
+@
+
 image:{conf}.jpg[]
 
 == Qui je suis ?
@@ -20,11 +22,10 @@ image:{conf}.jpg[]
 icon:twitter[] @NicolasComet +
 icon:github[] https://github.com/ncomet +
 
-☁️🎮  *Streaming Team*  ☁️🎮
+---
 
-*@*
-
-image::ubisoft.jpg[] 
+☁️🎮  *Streaming Team*  ☁️🎮 +
+image:ubisoft.jpg[] 
 
 [%notitle]
 == Problématique
@@ -35,11 +36,9 @@ source : https://martinfowler.com/articles/microservice-testing/[_M. Fowler "mic
 
 == Réel vs. mémoire ?
 
-Tester avec les implémentations *concrètes*
+Implémentations *concrètes*, en mode boîte noire
 
-image::hexagonal.png[width=50%]
-
-source: https://bit.ly/3elq5cT
+image::hexagonal.jpg[width=65%]
 
 == Ex : BDD relationnelle
 
@@ -56,18 +55,28 @@ https://phauer.com/2017/dont-use-in-memory-databases-tests-h2/
 ** JUnit 4 : `@Rule`/`@ClassRule`
 ** JUnit 5 : `@Testcontainer` extension
 * Librairie `Go` (Jan 2019)
-** `go test` framework
+** `go test` standard
 
 == Concepts
 
-* Prérequis : `docker`
+* Prérequis : `docker` (`podman`)
 * TUs, TC dans un contexte `docker`
-* Conteneur(s) jettable(s)
-** Scopés au test/testsuite
+* Scopé au test/testsuite
+* Conteneurs jettables
+
+[transition=none]
+== Et maintenant ?
+
+image::microtests-tc1.jpeg[]
+
+[transition=none]
+== Et maintenant ?
+
+image::microtests-tc2.jpeg[]
 
 == Go - domaine
 
-[source, go]
+[source, go, linenums]
 ----
 package domain
 
@@ -90,7 +99,7 @@ type AllGames interface {
 
 == Go - Entrepot Mongo
 
-[source, go]
+[source, go, linenums]
 ----
 package mongo
 
@@ -117,7 +126,7 @@ func (a AllGames) Add(game *domain.Game) {
 
 == Go - TestContainers 1/2
 
-[source, go]
+[source, go, linenums]
 ----
 req := testcontainers.ContainerRequest{
     Image:        "mongo:5.0.8",
@@ -136,20 +145,20 @@ container, err := testcontainers.GenericContainer(
 
 == Go - TestContainers 2/2
 
-[source, go]
+[source, go, linenums]
 ----
-hostIP, err := container.Host(ctx)
+host, err := container.Host(ctx)
 mPort, err := container.MappedPort(
     ctx, 
     nat.Port("27017"),
 )
 
-uri := fmt.Sprintf("mongodb://%s:%s", hostIP, mPort)
+uri := fmt.Sprintf("mongodb://%s:%s", host, mPort)
 ----
 
 == Go - TestMain
 
-[source, go]
+[source, go, linenums]
 ----
 func TestMain(m *testing.M) {    
     uri := ...
@@ -174,7 +183,7 @@ func TestMain(m *testing.M) {
 
 == Test all the things !
 
-[source, go]
+[source, go, linenums]
 ----
 func Test_Add(t *testing.T) {
 	gameId := domain.GameId(uuid.NewString())
@@ -186,6 +195,7 @@ func Test_Add(t *testing.T) {
 	})
 
 	game := allGames.By(gameId)
+
 	assert.Equal(t, gameId, game.Id)
 	assert.Equal(t, "Assassin's Creed Valhalla", game.Title)
 	assert.Equal(t, domain.Eighteen, game.PEGI)
