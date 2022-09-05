@@ -1,4 +1,4 @@
-= Test Me Up, before you Go-Go!
+= Test me up, before you Go-Go!
 :imagesdir: images
 :source-highlighter: highlightjs
 :revealjs_theme: white
@@ -10,6 +10,7 @@
 :icons: font
 :title-slide-transition: zoom
 :title-slide-transition-speed: fast
+:title-slide-background-video: wham.mp4
 // nsl, cloudnord, bdxio
 :conf: nsl 
 

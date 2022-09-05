@@ -1,4 +1,4 @@
-= Test Me Up, before you Go-Go!
+= Test me up, before you Go-Go!
 
 == Tools
 
