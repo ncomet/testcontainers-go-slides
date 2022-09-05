@@ -417,8 +417,8 @@ ul.byline li + li {
 <section id="_qui_je_suis"><h2>Qui je suis ?</h2><div class="slide-content"><div class="paragraph"><p><span class="icon"><i class="fa fa-twitter"></i></span> @NicolasComet<br>
 <span class="icon"><i class="fa fa-github"></i></span> <a href="https://github.com/ncomet" class="bare">https://github.com/ncomet</a><br></p></div>
 <hr>
-<div class="paragraph"><p>☁️🎮  <strong>Streaming Team</strong>  ☁️🎮<br>
-<span class="image"><img src="images/ubisoft.jpg" alt="ubisoft"></span></p></div></div></section>
+<div class="paragraph"><p><span class="image"><img src="images/ubisoft.jpg" alt="ubisoft"></span><br>
+☁️🎮  <strong>Streaming Team</strong>  ☁️🎮</p></div></div></section>
 <section id="_problématique"><div class="slide-content"><div class="imageblock"><img src="images/microtests.jpg" alt="microtests"></div>
 <div class="paragraph"><p>source : <a href="https://martinfowler.com/articles/microservice-testing/"><em>M. Fowler "microservices testing"</em></a></p></div></div></section>
 <section id="_réel_vs_mémoire"><h2>Réel vs. mémoire ?</h2><div class="slide-content"><div class="paragraph"><p>Implémentations <strong>concrètes</strong>, en mode boîte noire</p></div>
@@ -521,11 +521,13 @@ uri := fmt.Sprintf("mongodb://%s:%s", host, mPort)</code></pre></div></div></div
 	assert.Equal(t, "Assassin's Creed Valhalla", game.Title)
 	assert.Equal(t, domain.Eighteen, game.PEGI)
 }</code></pre></div></div></div></section>
+<section id="_démo" data-transition="zoom"><div class="slide-content"><div class="imageblock"><img src="images/demo_fail.gif" alt="demo fail" width="100%"></div></div></section>
 <section id=""><h2>🫱📱⚡️</h2><div class="slide-content"><div class="paragraph"><p>Article Medium + code Repository</p></div>
 <div class="imageblock"><img src="images/qr-code-medium.png" alt="qr code medium" width="40%"></div>
 <div class="paragraph"><p><span class="icon"><i class="fa fa-github"></i></span>/ncomet/testcontainers-go</p></div></div></section>
 <section id="_cicd"><h2>CI/CD</h2><div class="slide-content"><div class="ulist"><ul><li><p>Docker runner + Docker socket binding</p></li><li><p>Docker in Docker (dind), Service sous gitlab</p></li></ul></div>
-<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa fa-info-circle" title="Note"></i></td><td class="content">Donner l&#8217;accès à votre runner au démon Docker</td></tr></table></div></div></section>
+<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa fa-info-circle" title="Note"></i></td><td class="content">Donner l&#8217;accès à votre runner au démon Docker</td></tr></table></div>
+<div class="paragraph"><p><code>go test -v ./&#8230;&#8203;</code></p></div></div></section>
 <section id="_langages"><h2>Langages</h2><div class="slide-content"><div class="imageblock"><img src="images/testcontainers-languages.jpg" alt="testcontainers languages"></div></div></section>
 <section id="_2"><h2>🫱📱⚡️</h2><div class="slide-content"><div class="paragraph"><p>Slides</p></div>
 <div class="imageblock"><img src="images/qr-code-slides.png" alt="qr code slides" width="40%"></div>
