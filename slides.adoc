@@ -11,7 +11,6 @@
 :title-slide-transition: zoom
 :title-slide-transition-speed: fast
 :title-slide-background-video: wham.mp4
-//:title-slide-background-video-muted: true
 // nsl, cloudnord, bdxio
 :conf: nsl 
 
