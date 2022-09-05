@@ -22,8 +22,8 @@ icon:github[] https://github.com/ncomet +
 
 ---
 
-☁️🎮  *Streaming Team*  ☁️🎮 +
-image:ubisoft.jpg[] 
+image:ubisoft.jpg[] +
+☁️🎮  *Streaming Team*  ☁️🎮
 
 [%notitle]
 == Problématique
@@ -200,6 +200,11 @@ func Test_Add(t *testing.T) {
 }
 ----
 
+[%notitle, transition=zoom]
+== Démo
+
+image::demo_fail.gif[width=100%]
+
 == 🫱📱⚡️
 
 Article Medium + code Repository
@@ -214,6 +219,8 @@ icon:github[]/ncomet/testcontainers-go
 * Docker in Docker (dind), Service sous gitlab
 
 NOTE: Donner l'accès à votre runner au démon Docker
+
+`go test -v ./...`
 
 == Langages
 
