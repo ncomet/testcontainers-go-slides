@@ -63,7 +63,7 @@ https://phauer.com/2017/dont-use-in-memory-databases-tests-h2/
 * Prérequis : `docker` (`podman`)
 * TUs, TCs dans un contexte `docker`
 * Scopé au test/testsuite
-* Conteneurs jettables
+* Conteneurs jetables
 
 [transition=none]
 == Et maintenant ?
@@ -229,19 +229,11 @@ NOTE: Donner l'accès à votre runner au démon Docker
 
 image::testcontainers-languages.jpg[]
 
-== 🫱📱⚡️
-
-Slides
-
-image::qr-code-slides.png[width=40%]
-
-https://ncomet.github.io/testcontainers-go-slides
-
 [%notitle]
 == Questions ?
 
 image::ravingquestion.jpg[background, size=cover]
 
+image::qr-code-slides.png[width=40%]
 
-
-
+https://ncomet.github.io/testcontainers-go-slides
