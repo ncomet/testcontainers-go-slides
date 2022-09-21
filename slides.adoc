@@ -61,7 +61,7 @@ https://phauer.com/2017/dont-use-in-memory-databases-tests-h2/
 == Concepts
 
 * Prérequis : `docker` (`podman`)
-* TUs, TC dans un contexte `docker`
+* TUs, TCs dans un contexte `docker`
 * Scopé au test/testsuite
 * Conteneurs jettables
 
