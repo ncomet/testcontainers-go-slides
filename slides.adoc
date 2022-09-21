@@ -35,9 +35,9 @@ image::microtests.jpg[]
 
 source : https://martinfowler.com/articles/microservice-testing/[_M. Fowler "microservices testing"_] 
 
-== Réel vs. mémoire ?
+== Réel vs. mémoire/stubs ?
 
-Implémentations *concrètes*, en mode boîte noire
+Implémentations *concrètes*, en mode boîte noire ?
 
 image::hexagonal.jpg[width=65%]
 
