@@ -14,7 +14,7 @@
 :title-slide-background-video-muted: true
 :title-slide-background-video-loop: true
 // nsl, cloudnord, bdxio
-:conf: nsl 
+:conf: cloudnord
 
 image:{conf}.jpg[]
 
