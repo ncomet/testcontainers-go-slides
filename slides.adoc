@@ -28,6 +28,10 @@ icon:github[] https://github.com/ncomet +
 image:ubisoft.jpg[] +
 ☁️🎮  *Streaming Team*  ☁️🎮
 
+== Share Play
+
+image::shareplay.jpg[width=75%]
+
 [%notitle]
 == Problématique
 
