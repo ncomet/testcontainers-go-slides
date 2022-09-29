@@ -242,3 +242,7 @@ image::ravingquestion.jpg[background, size=cover]
 image::qr-code-slides.png[width=40%]
 
 https://ncomet.github.io/testcontainers-go-slides
+
+== Votez !
+
+image::qr-code-votes.png[width=40%]
