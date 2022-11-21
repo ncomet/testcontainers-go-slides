@@ -217,9 +217,9 @@ image::demo_fail.gif[width=100%]
 
 Article Medium + code Repository
 
-image::qr-code-medium.png[width=40%]
+https://medium.com/@nicolas.comet/go-testcontainers-4b5399b849d9[medium.com/@nicolas.comet]
 
-icon:github[]/ncomet/testcontainers-go
+https://github.com/ncomet/testcontainers-go[icon:github[]/ncomet/testcontainers-go]
 
 == CI/CD
 
@@ -245,4 +245,4 @@ https://ncomet.github.io/testcontainers-go-slides
 
 == Votez !
 
-image::qr-code-votes.png[width=40%]
+image::qr-code-votes-bdxio.png[width=40%]
